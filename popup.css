@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #0d1224;
+  --panel: #141b31;
+  --panel-2: #1a2240;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f4f7ff;
+  --muted: rgba(255, 255, 255, 0.62);
+  --muted-2: rgba(255, 255, 255, 0.42);
+  --accent: #1fb08b;
+  --accent-2: #6c7cff;
+  --danger: #ff845f;
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 360px;
+  background:
+    radial-gradient(circle at top right, rgba(108, 124, 255, 0.18), transparent 36%),
+    linear-gradient(180deg, #10162b 0%, #0d1224 100%);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+}
+
+.header,
+.status-card,
+.core-section,
+.api-section,
+.footer {
+  background: rgba(20, 27, 49, 0.92);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  box-shadow: 0 10px 24px rgba(108, 124, 255, 0.28);
+}
+
+.brand h1 {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.brand p {
+  color: var(--muted-2);
+  font-size: 11px;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle-track {
+  width: 48px;
+  height: 28px;
+  display: block;
+  position: relative;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  transition: transform 0.2s ease;
+}
+
+.toggle input:checked + .toggle-track {
+  background: var(--accent);
+}
+
+.toggle input:checked + .toggle-track .toggle-thumb {
+  transform: translateX(20px);
+}
+
+.status-card,
+.core-section,
+.api-section {
+  padding: 16px;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--muted-2);
+}
+
+.status-dot.on {
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(31, 176, 139, 0.5);
+}
+
+.status-dot.idle {
+  background: #ffd166;
+}
+
+.status-dot.off {
+  background: var(--danger);
+}
+
+.status-text {
+  font-weight: 600;
+}
+
+.status-note,
+.api-hint,
+.footer {
+  color: var(--muted);
+}
+
+.section-label {
+  color: var(--muted-2);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.core-list {
+  display: grid;
+  gap: 10px;
+}
+
+.core-card {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.core-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(108, 124, 255, 0.12);
+  font-size: 18px;
+}
+
+.core-card h2 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.core-card p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.api-section {
+  display: grid;
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font: inherit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgba(108, 124, 255, 0.45);
+  box-shadow: 0 0 0 3px rgba(108, 124, 255, 0.16);
+}
+
+.save-btn {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), #23c49a);
+  color: #051017;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.api-status {
+  min-height: 16px;
+  color: #8df0cc;
+  font-size: 12px;
+}
+
+.footer {
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 11px;
+}

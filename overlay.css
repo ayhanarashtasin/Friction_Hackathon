@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+#friction-mode-overlay * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+#friction-mode-overlay .fm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(6, 10, 20, 0.68);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+#friction-mode-overlay.fm-visible .fm-backdrop {
+  opacity: 1;
+}
+
+#friction-mode-overlay .fm-card {
+  width: min(100%, 520px);
+  max-height: min(92vh, 820px);
+  overflow: auto;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(90, 108, 255, 0.18), transparent 30%),
+    linear-gradient(180deg, #171f3c 0%, #101933 100%);
+  box-shadow:
+    0 32px 70px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+  transform: translateY(14px) scale(0.98);
+  transition: transform 0.24s ease;
+}
+
+#friction-mode-overlay.fm-visible .fm-card {
+  transform: translateY(0) scale(1);
+}
+
+#friction-mode-overlay .fm-card.fm-wide {
+  width: min(100%, 980px);
+}
+
+#friction-mode-overlay .fm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+#friction-mode-overlay .fm-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#friction-mode-overlay .fm-logo-icon {
+  font-size: 16px;
+}
+
+#friction-mode-overlay .fm-logo-text {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+#friction-mode-overlay .fm-close {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.48);
+  cursor: pointer;
+}
+
+#friction-mode-overlay .fm-body {
+  padding: 28px 28px 20px;
+  text-align: center;
+}
+
+#friction-mode-overlay .fm-icon-large {
+  margin-bottom: 14px;
+  font-size: 48px;
+  line-height: 1;
+}
+
+#friction-mode-overlay .fm-title {
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+#friction-mode-overlay .fm-message {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+#friction-mode-overlay .fm-loading-panel,
+#friction-mode-overlay .fm-challenge-box {
+  margin-bottom: 16px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(108, 124, 255, 0.22);
+  background: rgba(108, 124, 255, 0.08);
+  text-align: left;
+}
+
+#friction-mode-overlay .fm-loading-header,
+#friction-mode-overlay .fm-progress-meta,
+#friction-mode-overlay .fm-edit-header,
+#friction-mode-overlay .fm-footer,
+#friction-mode-overlay .fm-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+#friction-mode-overlay .fm-loading-kicker,
+#friction-mode-overlay .fm-progress-badge,
+#friction-mode-overlay .fm-challenge-label,
+#friction-mode-overlay .fm-edit-label {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+#friction-mode-overlay .fm-loading-percent {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+#friction-mode-overlay .fm-progress-track {
+  width: 100%;
+  height: 10px;
+  margin: 10px 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+#friction-mode-overlay .fm-progress-fill {
+  width: 8%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #1fb08b 0%, #6c7cff 100%);
+  transition: width 0.28s ease;
+}
+
+#friction-mode-overlay .fm-progress-stage,
+#friction-mode-overlay .fm-progress-note,
+#friction-mode-overlay .fm-challenge-text,
+#friction-mode-overlay .fm-word-count {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+#friction-mode-overlay .fm-progress-stage {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#friction-mode-overlay .fm-progress-note,
+#friction-mode-overlay .fm-challenge-text {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+#friction-mode-overlay .fm-edit-section {
+  text-align: left;
+}
+
+#friction-mode-overlay .fm-word-count {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+#friction-mode-overlay .fm-edit-textarea,
+#friction-mode-overlay .fm-comp-textarea {
+  width: 100%;
+  min-height: 120px;
+  margin-top: 8px;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.055);
+  color: #f4f6ff;
+  font-size: 14px;
+  line-height: 1.65;
+  resize: vertical;
+  outline: none;
+}
+
+#friction-mode-overlay .fm-edit-textarea:focus,
+#friction-mode-overlay .fm-comp-textarea:focus {
+  border-color: rgba(108, 124, 255, 0.42);
+  box-shadow: 0 0 0 3px rgba(108, 124, 255, 0.14);
+}
+
+#friction-mode-overlay .fm-footer {
+  padding: 18px 28px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  justify-content: flex-end;
+}
+
+#friction-mode-overlay .fm-actions {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+#friction-mode-overlay .fm-btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.18s ease, opacity 0.18s ease, filter 0.18s ease;
+}
+
+#friction-mode-overlay .fm-btn-primary {
+  background: linear-gradient(135deg, #1fb08b 0%, #1ed59b 100%);
+  color: #04100d;
+}
+
+#friction-mode-overlay .fm-btn-ghost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#friction-mode-overlay .fm-btn:hover {
+  transform: translateY(-1px);
+}
+
+#friction-mode-overlay .fm-btn-disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+#friction-mode-overlay .fm-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+  text-align: left;
+}
+
+#friction-mode-overlay .fm-comp-col {
+  min-width: 0;
+}
+
+#friction-mode-overlay .fm-comp-col .fm-btn {
+  width: 100%;
+  margin-top: 12px;
+}
+
+@media (max-width: 760px) {
+  #friction-mode-overlay .fm-card.fm-wide {
+    width: 100%;
+  }
+
+  #friction-mode-overlay .fm-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #friction-mode-overlay .fm-footer {
+    padding-top: 14px;
+  }
+
+  #friction-mode-overlay .fm-actions {
+    flex-direction: column;
+  }
+
+  #friction-mode-overlay .fm-actions .fm-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Friction Mode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <div class="brand-mark">⚡</div>
+        <div>
+          <h1>Friction Mode</h1>
+          <p>Minimal prompt judge</p>
+        </div>
+      </div>
+
+      <label class="toggle">
+        <input type="checkbox" id="master-enabled" />
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </label>
+    </header>
+
+    <section class="status-card">
+      <div class="status-row">
+        <span class="status-dot" id="status-dot"></span>
+        <span class="status-text" id="status-text">Loading...</span>
+      </div>
+      <p class="status-note">Only two engines are active now: the 5-step verdict judge and the Anti-Paste Engine.</p>
+    </section>
+
+    <section class="core-section">
+      <div class="section-label">CORE ENGINES</div>
+      <div class="core-list">
+        <article class="core-card">
+          <div class="core-icon">🧠</div>
+          <div>
+            <h2>5-Step Verdict Judge</h2>
+            <p>Every normal prompt goes through a 5-verdict critique before final submission.</p>
+          </div>
+        </article>
+
+        <article class="core-card">
+          <div class="core-icon">⛔</div>
+          <div>
+            <h2>Anti-Paste Engine</h2>
+            <p>Large pasted blocks must be summarized before they are sent to the AI.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="api-section">
+      <div class="section-label">ORACLE SETTINGS</div>
+
+      <label class="field">
+        <span>Provider</span>
+        <select id="api-provider" class="input">
+          <option value="gemini">Google Gemini</option>
+          <option value="openai">OpenAI</option>
+          <option value="openrouter">OpenRouter</option>
+          <option value="anthropic">Anthropic</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Model</span>
+        <input type="text" id="api-model" class="input" placeholder="Optional model override" />
+      </label>
+
+      <label class="field">
+        <span>API key</span>
+        <input type="password" id="api-key" class="input" placeholder="Paste your API key" />
+      </label>
+
+      <button id="save-api-btn" class="save-btn">Save Oracle Settings</button>
+      <p class="api-hint">If no API key is set, Friction Mode falls back to the local 5-step judge.</p>
+      <p class="api-status" id="api-status-msg"></p>
+    </section>
+
+    <footer class="footer">
+      <span>Supported on ChatGPT, Claude, and Gemini.</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
