@@ -41,6 +41,7 @@ body {
 .status-card,
 .core-section,
 .api-section,
+.dna-section,
 .footer {
   background: rgba(20, 27, 49, 0.92);
   border: 1px solid var(--border);
@@ -257,4 +258,298 @@ body {
   padding: 12px 16px;
   text-align: center;
   font-size: 11px;
+}
+
+/* cooldown card highlight color */
+.core-card-cooldown {
+  border-color: rgba(255, 107, 74, 0.15);
+  background: rgba(255, 107, 74, 0.04);
+}
+
+.core-icon-cooldown {
+  background: rgba(255, 107, 74, 0.15) !important;
+}
+
+/* cooldown slider section */
+.cooldown-section {
+  background: rgba(20, 27, 49, 0.92);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.slider-group {
+  margin-top: 4px;
+}
+
+.slider-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.slider-label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.slider-value {
+  color: #ff845f;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff6b4a 0%, #a855f7 50%, #1fb08b 100%);
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #ff6b4a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  border-color: #ff3d6e;
+  box-shadow: 0 0 0 4px rgba(255, 107, 74, 0.2), 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #ff6b4a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.slider-range {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  color: var(--muted-2);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.cooldown-hint {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* DNA score + radar chart area */
+.dna-section {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.section-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dna-reset {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.dna-reset:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dna-hero {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.dna-score-wrap {
+  position: relative;
+  width: 104px;
+  height: 104px;
+}
+
+.dna-score-ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.dna-ring-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 8;
+}
+
+.dna-ring-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 327;
+  stroke-dashoffset: 327;
+  transition: stroke-dashoffset 0.6s ease, stroke 0.3s ease;
+}
+
+.dna-score-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.dna-score-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.dna-score-label {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--muted-2);
+  font-weight: 700;
+}
+
+.dna-radar {
+  width: 100%;
+  max-width: 180px;
+  height: 140px;
+  overflow: visible;
+  justify-self: end;
+}
+
+.dna-radar-grid {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.07);
+  stroke-width: 1;
+}
+
+.dna-radar-axis {
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 1;
+}
+
+.dna-radar-shape {
+  fill: rgba(108, 124, 255, 0.28);
+  stroke: var(--accent-2);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  transition: all 0.6s ease;
+}
+
+.dna-radar-label {
+  font-size: 9px;
+  font-weight: 600;
+  fill: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.dna-insight {
+  background: rgba(108, 124, 255, 0.08);
+  border: 1px solid rgba(108, 124, 255, 0.18);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+.dna-insight strong {
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
+.dna-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.dna-stat {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 6px;
+  text-align: center;
+}
+
+.dna-stat-value {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.dna-stat-label {
+  margin-top: 2px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--muted-2);
+  text-transform: uppercase;
+}
+
+.dna-spark-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dna-spark-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+}
+
+.dna-spark {
+  width: 100%;
+  height: 36px;
+  overflow: visible;
+}
+
+.dna-spark-bar {
+  fill: rgba(255, 255, 255, 0.08);
+}
+
+.dna-spark-bar-on {
+  fill: var(--accent);
 }

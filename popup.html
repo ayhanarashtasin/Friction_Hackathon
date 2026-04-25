@@ -11,10 +11,10 @@
   <div class="app">
     <header class="header">
       <div class="brand">
-        <div class="brand-mark">⚡</div>
+        <div class="brand-mark">&#9889;</div>
         <div>
           <h1>Friction Mode</h1>
-          <p>Minimal prompt judge</p>
+          <p>AI prompt judge</p>
         </div>
       </div>
 
@@ -29,56 +29,103 @@
         <span class="status-dot" id="status-dot"></span>
         <span class="status-text" id="status-text">Loading...</span>
       </div>
-      <p class="status-note">Only two engines are active now: the 5-step verdict judge and the Anti-Paste Engine.</p>
+      <p class="status-note">Main flow: the Oracle reads your prompt, returns 5 verdicts to improve it, then lets you compare your version against the AI rewrite.</p>
+    </section>
+
+    <section class="dna-section" id="dna-section">
+      <div class="section-label-row">
+        <div class="section-label">PROMPT DNA</div>
+        <button id="dna-reset" class="dna-reset" title="Reset stats">Reset</button>
+      </div>
+
+      <div class="dna-hero">
+        <div class="dna-score-wrap">
+          <svg class="dna-score-ring" viewBox="0 0 120 120">
+            <circle class="dna-ring-track" cx="60" cy="60" r="52"></circle>
+            <circle class="dna-ring-fill" id="dna-ring-fill" cx="60" cy="60" r="52"></circle>
+          </svg>
+          <div class="dna-score-inner">
+            <div class="dna-score-value" id="dna-score-value">--</div>
+            <div class="dna-score-label">SCORE</div>
+          </div>
+        </div>
+
+        <svg class="dna-radar" id="dna-radar" viewBox="-110 -110 220 220">
+          <polygon class="dna-radar-grid" points="0,-100 95.1,-30.9 58.8,80.9 -58.8,80.9 -95.1,-30.9"></polygon>
+          <polygon class="dna-radar-grid" points="0,-75 71.3,-23.2 44.1,60.7 -44.1,60.7 -71.3,-23.2"></polygon>
+          <polygon class="dna-radar-grid" points="0,-50 47.6,-15.5 29.4,40.5 -29.4,40.5 -47.6,-15.5"></polygon>
+          <polygon class="dna-radar-grid" points="0,-25 23.8,-7.7 14.7,20.2 -14.7,20.2 -23.8,-7.7"></polygon>
+          <line class="dna-radar-axis" x1="0" y1="0" x2="0" y2="-100"></line>
+          <line class="dna-radar-axis" x1="0" y1="0" x2="95.1" y2="-30.9"></line>
+          <line class="dna-radar-axis" x1="0" y1="0" x2="58.8" y2="80.9"></line>
+          <line class="dna-radar-axis" x1="0" y1="0" x2="-58.8" y2="80.9"></line>
+          <line class="dna-radar-axis" x1="0" y1="0" x2="-95.1" y2="-30.9"></line>
+          <polygon class="dna-radar-shape" id="dna-radar-shape" points="0,0 0,0 0,0 0,0 0,0"></polygon>
+          <text class="dna-radar-label" x="0" y="-105" text-anchor="middle">Clarity</text>
+          <text class="dna-radar-label" x="102" y="-28" text-anchor="start">Context</text>
+          <text class="dna-radar-label" x="62" y="95" text-anchor="start">Purpose</text>
+          <text class="dna-radar-label" x="-62" y="95" text-anchor="end">Specificity</text>
+          <text class="dna-radar-label" x="-102" y="-28" text-anchor="end">Discipline</text>
+        </svg>
+      </div>
+
+      <div class="dna-insight" id="dna-insight">Send your first prompt to build your Prompt DNA.</div>
+
+      <div class="dna-stats" id="dna-stats">
+        <div class="dna-stat"><div class="dna-stat-value" id="dna-stat-prompts">0</div><div class="dna-stat-label">Prompts</div></div>
+        <div class="dna-stat"><div class="dna-stat-value" id="dna-stat-edits">0%</div><div class="dna-stat-label">Edit rate</div></div>
+        <div class="dna-stat"><div class="dna-stat-value" id="dna-stat-streak">0</div><div class="dna-stat-label">Day streak</div></div>
+      </div>
+
+      <div class="dna-spark-wrap">
+        <div class="dna-spark-label">LAST 7 DAYS</div>
+        <svg class="dna-spark" id="dna-spark" viewBox="0 0 140 32" preserveAspectRatio="none"></svg>
+      </div>
     </section>
 
     <section class="core-section">
       <div class="section-label">CORE ENGINES</div>
       <div class="core-list">
         <article class="core-card">
-          <div class="core-icon">🧠</div>
+          <div class="core-icon">&#129504;</div>
           <div>
-            <h2>5-Step Verdict Judge</h2>
-            <p>Every normal prompt goes through a 5-verdict critique before final submission.</p>
+            <h2>AI 5-Verdict Judge</h2>
+            <p>The API analyzes every normal prompt and returns 5 verdicts that help the user improve it.</p>
           </div>
         </article>
 
         <article class="core-card">
-          <div class="core-icon">⛔</div>
+          <div class="core-icon">&#9940;</div>
           <div>
             <h2>Anti-Paste Engine</h2>
             <p>Large pasted blocks must be summarized before they are sent to the AI.</p>
           </div>
         </article>
+
+        <article class="core-card core-card-cooldown">
+          <div class="core-icon core-icon-cooldown">&#9203;</div>
+          <div>
+            <h2>Cognitive Cooldown</h2>
+            <p>Blocks rapid-fire prompting after a word threshold. Forces a 30-second reading break.</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="api-section">
-      <div class="section-label">ORACLE SETTINGS</div>
-
-      <label class="field">
-        <span>Provider</span>
-        <select id="api-provider" class="input">
-          <option value="gemini">Google Gemini</option>
-          <option value="openai">OpenAI</option>
-          <option value="openrouter">OpenRouter</option>
-          <option value="anthropic">Anthropic</option>
-        </select>
-      </label>
-
-      <label class="field">
-        <span>Model</span>
-        <input type="text" id="api-model" class="input" placeholder="Optional model override" />
-      </label>
-
-      <label class="field">
-        <span>API key</span>
-        <input type="password" id="api-key" class="input" placeholder="Paste your API key" />
-      </label>
-
-      <button id="save-api-btn" class="save-btn">Save Oracle Settings</button>
-      <p class="api-hint">If no API key is set, Friction Mode falls back to the local 5-step judge.</p>
-      <p class="api-status" id="api-status-msg"></p>
+    <section class="cooldown-section">
+      <div class="section-label">COOLDOWN SETTINGS</div>
+      <div class="slider-group">
+        <div class="slider-header">
+          <span class="slider-label">Word Threshold</span>
+          <span class="slider-value" id="threshold-value">150 words</span>
+        </div>
+        <input type="range" id="cooldown-threshold" class="slider" min="50" max="300" step="10" value="150" />
+        <div class="slider-range">
+          <span>50</span>
+          <span>300</span>
+        </div>
+      </div>
+      <p class="cooldown-hint">After sending this many words of prompts, a 30-second cooldown is triggered. Lower values = more friction.</p>
     </section>
 
     <footer class="footer">

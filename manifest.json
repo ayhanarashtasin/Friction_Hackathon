@@ -42,6 +42,10 @@
     "*://chatgpt.com/*",
     "*://chat.openai.com/*",
     "*://claude.ai/*",
-    "*://gemini.google.com/*"
+    "*://gemini.google.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.openai.com/*",
+    "https://openrouter.ai/*",
+    "https://api.anthropic.com/*"
   ]
 }
